@@ -19,7 +19,8 @@ namespace HarperDB_driver_dotnetframework_test
         static async Task<dynamic> GetAsync()
         {
             HarperDBClient harperDB = new HarperDBClient(new Uri("http://52.187.61.90:9925"), "HDB_ADMIN", "root1984");
-            var response = await harperDB.SQLSelect(@"select productid as id,* from northwnd.products order by id asc limit 10");
+            var response = await harperDB.SQLSelect(@"select productid as id,* from northwnd.products order by id asc limit 1000
+");
             var data = JsonConvert.SerializeObject(response);
             foreach (var pair in response)
             {
